@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:17:46 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 10:07:39 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/08 10:17:26 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ static char		*fill_line(char *line, int size)
 	while (i < size)
 	{
 		line[i] = '.';
-		ft_putchar(line[i]);
 		i++;
 	}
-	ft_putchar('\n');
 	line[i] = '\0';
 	return (line);
 }
@@ -47,7 +45,7 @@ static char		**init_grid(int lines, int columns)
 	return (grid);
 }
 
-static char		test_num(char *str)
+static int		test_num(char *str)
 {
 	int		i;
 
@@ -58,18 +56,24 @@ static char		test_num(char *str)
 			return (0);
 		i++;
 	}
-	return (1);
+	return (ft_atoi(str));
 }
 
 char			**create_grid(char *lines, char *columns)
 {
 	char		**grid;
+	int			l;
+	int			c;
 
-	if (test_num(lines) == 0)
+	if ((l = test_num(lines)) == 0)
 		return (NULL);
-	if (test_num(columns) == 0)
+	if ((c = test_num(columns)) == 0)
 		return (NULL);
-	if (!(grid = init_grid(atoi(lines), atoi(columns))))
+	if (c < 4 || c > 2000000000)
+		return (NULL);
+	if (l < 4 || l > 2000000000)
+		return (NULL);
+	if (!(grid = init_grid(l, c)))
 		return (NULL);
 	return (grid);
 }
