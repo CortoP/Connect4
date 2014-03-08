@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/08 09:13:09 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 10:29:09 by vlehuger         ###   ########.fr       */
+/*   Created: 2014/03/08 10:22:22 by vlehuger          #+#    #+#             */
+/*   Updated: 2014/03/08 10:33:06 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <puissance_4.h>
-#include <unistd.h>
+#include <libft.h>
 
-void		error(void)
+void			display(char **grid)
 {
-	write(1, "Usage : ./puissance_4 [0-9] [0-9]\n", 34);
-}
+	int			i;
+	int			j;
+	int			sizeline;
 
-int			main(int ac, char **av)
-{
-//	int		player;
-	char	**grid;
-
-	if (ac == 3)
+	sizeline = ft_strlen(grid[0]);
+	i = -1;
+	while (grid[++i])
 	{
-		if ((grid = create_grid(av[1], av[2])) == NULL)
-		{
-			error();
-		}
-		//Nb de joueurs ?
-/*		if (player == 1)
-			ia();
-		else if (player == 2)
-			two_player();
-*/
-		display(grid);
+		j = -1;
+		ft_putchar('|');
+		while (grid[i][++j])
+			ft_putchar(grid[i][j]);
+		ft_putstr("|\n");
 	}
-	else
-		error();
-	return (0);
+	ft_putchar(' ');
+	i = 0;
+	while (i < sizeline)
+	{
+		ft_putnbr(i % 10);
+		i++;
+	}
+	ft_putchar('\n');
 }

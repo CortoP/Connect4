@@ -6,7 +6,7 @@
 #    By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/14 14:36:46 by vlehuger          #+#    #+#              #
-#    Updated: 2014/03/08 09:30:45 by vlehuger         ###   ########.fr        #
+#    Updated: 2014/03/08 10:28:16 by vlehuger         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -19,6 +19,7 @@ NAME =		puissance_4
 SRCS =		\
 			srcs/main.c\
 			srcs/create_grid.c\
+			srcs/display.c\
 
 OBJS =		$(SRCS:.c=.o)
 
