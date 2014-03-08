@@ -6,7 +6,7 @@
 #    By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/14 14:36:46 by vlehuger          #+#    #+#              #
-#    Updated: 2014/03/08 10:28:16 by vlehuger         ###   ########.fr        #
+#    Updated: 2014/03/08 11:02:30 by vlehuger         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,6 +20,9 @@ SRCS =		\
 			srcs/main.c\
 			srcs/create_grid.c\
 			srcs/display.c\
+			srcs/two_players.c\
+			srcs/get_token.c\
+			srcs/place_token.c\
 
 OBJS =		$(SRCS:.c=.o)
 

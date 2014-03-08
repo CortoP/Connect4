@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   two_players.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/08 10:22:22 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 11:07:07 by vlehuger         ###   ########.fr       */
+/*   Created: 2014/03/08 10:37:10 by vlehuger          #+#    #+#             */
+/*   Updated: 2014/03/08 11:10:51 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <puissance_4.h>
 
-void			display(char **grid)
+void			two_players(char **grid)
 {
+	int			token;
 	int			i;
-	int			j;
-	int			sizeline;
 
-	sizeline = ft_strlen(grid[0]);
-	i = -1;
-	while (grid[++i])
+	i = 0;
+	while (i < 50)
 	{
-		j = -1;
-		ft_putchar('|');
-		while (grid[i][++j])
-			ft_putchar(grid[i][j]);
-		ft_putstr("|\n");
-	}
-	ft_putchar(' ');
-	i = 1;
-	while (i <= sizeline)
-	{
-		ft_putnbr(i % 10);
+		token = get_token(ft_strlen(grid[0]));
+		if (token > -1)
+			grid = place_token(grid, token);
+		display(grid);
 		i++;
 	}
-	ft_putchar('\n');
+	// test_win(grid);
 }

@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:13:09 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 10:29:09 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/08 11:03:11 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,18 @@ int			main(int ac, char **av)
 		{
 			error();
 		}
-		//Nb de joueurs ?
-/*		if (player == 1)
-			ia();
-		else if (player == 2)
-			two_player();
-*/
-		display(grid);
+//////
+		two_players(grid);
 	}
 	else
 		error();
 	return (0);
 }
+
+
+
+		//Nb de joueurs ?
+/*		if (player == 1)
+			ia();
+		else if (player == 2)
+*/

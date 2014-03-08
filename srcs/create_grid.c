@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:17:46 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 10:17:26 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/08 10:51:11 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char		**init_grid(int lines, int columns)
 	return (grid);
 }
 
-static int		test_num(char *str)
+int			test_num(char *str)
 {
 	int		i;
 
@@ -53,7 +53,7 @@ static int		test_num(char *str)
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]) == 0)
-			return (0);
+			return (-1);
 		i++;
 	}
 	return (ft_atoi(str));
@@ -65,9 +65,9 @@ char			**create_grid(char *lines, char *columns)
 	int			l;
 	int			c;
 
-	if ((l = test_num(lines)) == 0)
+	if ((l = test_num(lines)) == -1)
 		return (NULL);
-	if ((c = test_num(columns)) == 0)
+	if ((c = test_num(columns)) == -1)
 		return (NULL);
 	if (c < 4 || c > 2000000000)
 		return (NULL);

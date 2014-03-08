@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   place_token.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/08 10:22:22 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 11:07:07 by vlehuger         ###   ########.fr       */
+/*   Created: 2014/03/08 10:55:55 by vlehuger          #+#    #+#             */
+/*   Updated: 2014/03/08 11:02:43 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-
-void			display(char **grid)
+char		**place_token(char **grid, int token)
 {
-	int			i;
-	int			j;
-	int			sizeline;
+	int				line;
+	static int		count = -1;
 
-	sizeline = ft_strlen(grid[0]);
-	i = -1;
-	while (grid[++i])
-	{
-		j = -1;
-		ft_putchar('|');
-		while (grid[i][++j])
-			ft_putchar(grid[i][j]);
-		ft_putstr("|\n");
-	}
-	ft_putchar(' ');
-	i = 1;
-	while (i <= sizeline)
-	{
-		ft_putnbr(i % 10);
-		i++;
-	}
-	ft_putchar('\n');
+	count++;
+	if (grid[0][token] != '.')
+		return (grid);
+	line = 0;
+	while (grid[line] && grid[line][token] == '.')
+		line++;
+	if (count % 2 == 0)
+		grid[line - 1][token] = 'X';
+	else
+		grid[line - 1][token] = 'O';
+	return (grid);
 }
