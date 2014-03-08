@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:37:10 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 12:18:45 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/08 14:16:50 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			two_players(char **grid)
 	i = 0;
 	while (i < 50)
 	{
-		token = get_token(ft_strlen(grid[0]));
+		token = get_token(ft_strlen(grid[0]) + 1);
 		if (token > -1)
 		{
 			grid = place_token(grid, token);

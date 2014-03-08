@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 11:19:16 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 12:17:50 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/08 14:39:12 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,6 @@ char	test_up_down(char **grid, int l, int c, char tok)
 		i = 0;
 	while (grid[i] && i <= l + 3)
 	{
-		ft_putnbr(i);
-		ft_putchar(' ');
-		ft_putnbr(c);
-		ft_putchar(' ');
-		ft_putchar(grid[i][c]);
-		ft_putchar('\n');
-
 		if (grid[i][c] == tok)
 			count++;
 		if (count == 4)
@@ -68,6 +61,69 @@ char	test_up_down(char **grid, int l, int c, char tok)
 		save = count;
 		i++;
 	}
+	return (0);
+}
+
+char	test_diag_up_left(char **grid, int l, int c, char tok)
+{
+	int		i;
+	int		j;
+	int		count;
+	int		save;
+
+	save = 0;
+	count = 0;
+	if (l >= 3)
+		i = l - 3 - 1;
+	else
+		i = -1;
+	if (c >= 3)
+		j = c - 3 - 1;
+	else
+		j = -1;
+	while (grid[++i] && grid[i][++j] && i <= l + 3)
+	{
+		if (grid[i][j] == tok)
+			count++;
+		if (count == 4)
+			return (1);
+		if (count == save)
+			count = 0;
+		save = count;
+	}
+	return (0);
+}
+
+
+char		test_diag_up_right(char **grid, int l, int c, char tok)
+{
+	int		i;
+	int		j;
+	int		count;
+	int		ret;
+
+	i = l;
+	j = c;
+	count = 0;
+	ret = 1;
+	while (grid[--i] && grid[i][++j] && count < 3)
+	{
+		if (grid[i][j] == tok)
+			ret++;
+	}
+	if (ret == 4)
+		return (1);
+	i = l;
+	j = c;
+	count = 0;
+	ret = 1;
+	while (grid[++i] && grid[i][--j] && count < 3)
+	{
+		if (grid[i][j] == tok)
+			ret++;
+	}
+	if (ret == 4)
+		return (1);
 	return (0);
 }
 
@@ -84,9 +140,9 @@ char		test_win(char **grid, int column)
 		return (1);
 	if (test_up_down(grid, i, column, token) == 1)
 		return (1);
-/*	if (test_diag_up_left(grid, i, colmun, token) == 1)
+	if (test_diag_up_left(grid, i, column, token) == 1)
 		return (1);
 	if (test_diag_up_right(grid, i, column, token) == 1)
 		return (1);
-*/	return (0);
+	return (0);
 }
