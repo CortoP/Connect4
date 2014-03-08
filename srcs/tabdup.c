@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   two_players.c                                      :+:      :+:    :+:   */
+/*   tabdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/08 10:37:10 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 15:45:56 by vlehuger         ###   ########.fr       */
+/*   Created: 2014/03/08 17:15:29 by vlehuger          #+#    #+#             */
+/*   Updated: 2014/03/08 17:24:48 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <libft.h>
-#include <puissance_4.h>
 
-void			two_players(char **grid, int line, int col)
+char			**tabdup(char **tab)
 {
-	int			token;
+	char		**copy;
 	int			i;
-	char		tok;
+	int			j;
 	int			k;
 
+	k = 0;
+	while (tab[k])
+		k++;
+	if (!(copy = (char **)malloc(sizeof(char *) * (k + 1))))
+		return (NULL);
+	copy[k] = NULL;
 	i = -1;
-	while (++i < line * col)
+	while (++i < k)
 	{
-		token = get_token(ft_strlen(grid[0]) + 1);
-		if (token > -1)
+		if (!(copy[i] = (char *)malloc(sizeof(char *) * (ft_strlen(tab[i])))))
+			return (NULL);
+		j = -1;
+		while (++j < (int)ft_strlen(tab[i]))
 		{
-			grid = place_token(grid, token);
-			display(grid);
-			if (test_win(grid, token) == 1)
-			{
-				k = 0;
-				while (grid[k] && grid[k][token] == '.')
-					k++;
-				tok = grid[k][token];
-				ft_putchar(tok);
-				ft_putendl(" win");
-				return ;
-			}
+			copy[i][j] = tab[i][j];
 		}
-		else
-			i--;
+		copy[j] = '\0';
 	}
+	return (copy);
 }

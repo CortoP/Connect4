@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   two_players.c                                      :+:      :+:    :+:   */
+/*   one_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/08 10:37:10 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 15:45:56 by vlehuger         ###   ########.fr       */
+/*   Created: 2014/03/08 15:38:59 by vlehuger          #+#    #+#             */
+/*   Updated: 2014/03/08 18:00:48 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <puissance_4.h>
 
-void			two_players(char **grid, int line, int col)
+void			one_player(char **grid, int line, int col)
 {
 	int			token;
 	int			i;
-	char		tok;
 	int			k;
 
 	i = -1;
 	while (++i < line * col)
 	{
-		token = get_token(ft_strlen(grid[0]) + 1);
+		if (i % 2 == 1)
+			token = ai(grid, col);
+//			token = get_token(ft_strlen(grid[0]) + 1);
+		else
+			token = get_token(ft_strlen(grid[0]) + 1);
 		if (token > -1)
 		{
 			grid = place_token(grid, token);
@@ -33,8 +36,7 @@ void			two_players(char **grid, int line, int col)
 				k = 0;
 				while (grid[k] && grid[k][token] == '.')
 					k++;
-				tok = grid[k][token];
-				ft_putchar(tok);
+				ft_putchar(grid[k][token]);
 				ft_putendl(" win");
 				return ;
 			}

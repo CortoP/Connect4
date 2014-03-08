@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ai.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/08 09:13:09 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 17:57:29 by vlehuger         ###   ########.fr       */
+/*   Created: 2014/03/08 17:27:19 by vlehuger          #+#    #+#             */
+/*   Updated: 2014/03/08 18:04:54 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <puissance_4.h>
-#include <libft.h>
+#include <stdlib.h>
 
-void		error(void)
+char		test_token(char **grid, int col)
 {
-	write(1, "Usage : ./puissance_4 [0-9] [0-9]\n", 34);
+	place_token(grid, col);
+	if (test_win(grid, col) == 1)
+		return (WIN);
+	return (DRAW);
 }
 
-int			main(int ac, char **av)
+int			ai(char **grid, int cols)
 {
-//	int		player;
-	char	**grid;
+	int		i;
+	int		ret;
+	int		tmp;
+	int		tok;
+	char	**copy;
 
-	grid = NULL;
-	if (ac == 3)
+	ret = -100000;
+	i = 0;
+	while (i < cols)
 	{
-		if ((grid = create_grid(av[1], av[2])) == NULL)
-			error();
-		else
+		copy = tabdup(grid);
+		tmp = test_token(copy, i);
+		freetab(copy);
+		if (tmp > ret)
 		{
-			one_player(grid, ft_atoi(av[1]), ft_atoi(av[2]));
-//			two_players(grid, ft_atoi(av[1]), ft_atoi(av[2]));
+			ret = tmp;
+			tok = i;
 		}
+		i++;
 	}
-	else
-		error();
-	if (grid)
-		freetab(grid);
-	return (0);
+	return (tok);
 }
