@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 17:27:19 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 15:15:50 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 16:42:19 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		test_adv2(char **grid)
 			if (test_win(grid, coord[1]) == 1)
 				ret = 1;
 			else
-				ret = test_ai2(grid);
+				ret = 8;
 			grid[coord[0] - 1][coord[1]] = '.';
 		}
 		coord[1] = coord[1] + 1;
