@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:31:47 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 13:43:06 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 15:04:33 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			test_num(char *str);
 void		display(char **grid);
 void		two_players(char **grid, int line, int col);
 void		one_player(char **grid, int line, int col);
-int			get_token(int sizeline);
+int			get_token(int sizeline, char token);
 char		**place_token(char **grid, int token, int i);
 char		test_win(char **grid, int column);
 char		**tabdup(char **tab);
