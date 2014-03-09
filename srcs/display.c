@@ -6,11 +6,21 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:22:22 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 11:07:07 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 13:02:46 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+
+void			put_token(char c)
+{
+	if (c == 'X')
+		ft_putstr("\033[0;33m""X""\033[00m");
+	else if (c == 'O')
+		ft_putstr("\033[0;31m""O""\033[00m");
+	else
+		ft_putchar(c);
+}
 
 void			display(char **grid)
 {
@@ -23,10 +33,10 @@ void			display(char **grid)
 	while (grid[++i])
 	{
 		j = -1;
-		ft_putchar('|');
+		ft_putstr("\033[00;34m""|""\033[00m");
 		while (grid[i][++j])
-			ft_putchar(grid[i][j]);
-		ft_putstr("|\n");
+			put_token(grid[i][j]);
+		ft_putstr("\033[00;34m""|\n""\033[00m");
 	}
 	ft_putchar(' ');
 	i = 1;

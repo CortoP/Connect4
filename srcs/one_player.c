@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 15:38:59 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 18:00:48 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 13:05:23 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void			one_player(char **grid, int line, int col)
 	int			k;
 
 	i = -1;
+	display(grid);
 	while (++i < line * col)
 	{
 		if (i % 2 == 1)
@@ -44,4 +45,5 @@ void			one_player(char **grid, int line, int col)
 		else
 			i--;
 	}
+	ft_putendl("\n\nMatch nul\n");
 }
