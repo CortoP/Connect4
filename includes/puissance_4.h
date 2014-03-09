@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:31:47 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 18:00:14 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 10:18:13 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #define WIN 1
 #define DRAW 0
 #define FAIL -1
+
+typedef struct	s_tok
+{
+	int			col;
+	int			pts;
+}				t_tok;
 
 char		**create_grid(char *lines, char *columns);
 int			test_num(char *str);
@@ -28,5 +34,6 @@ char		test_win(char **grid, int column);
 char		**tabdup(char **tab);
 void		freetab(char **tab);
 int			ai(char **grid, int col);
+char		test_up(char **grid, int col);
 
 #endif /* !PUISSANCE_4_H */
