@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 15:38:59 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 14:34:03 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 14:40:13 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ void			one_player(char **grid, int line, int col)
 	{
 		if (i == 0)
 			display(grid);
-		if (i % 2 == 1)
-			token = ai(grid, col);
-		else
-			token = get_token(ft_strlen(grid[0]) + 1);
+		i % 2 == 1 ? (token = ai(grid, col))
+			: (token = get_token(ft_strlen(grid[0]) + 1));
 		if (token > -1)
 		{
 			grid = place_token(grid, token, i);
