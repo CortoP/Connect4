@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:31:47 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 15:16:50 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 17:53:39 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void		freetab(char **tab);
 int			ai(char **grid, int col);
 char		test_up(char **grid, int col);
 void		victory(char **grid, int col);
-char		test_ai2(char **grid);
+int			test_ai2(char **grid);
+int			ft_abs(int nb);
 
 #endif /* !PUISSANCE_4_H */
