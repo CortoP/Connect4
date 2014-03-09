@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 17:27:19 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 11:49:20 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 14:32:12 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,27 @@
 
 char		test_adv2(char **grid)
 {
-	int		line;
+	int		coord[2];
 	int		ret;
-	int		col;
 	int		tmp;
 
-	col = 0;
+	coord[1] = 0;
 	tmp = 10;
-	while (grid[0][col])
+	while (grid[0][coord[1]])
 	{
-		if (test_up(grid, col))
+		if (test_up(grid, coord[1]))
 		{
-			line = 0;
-			while (grid[line] && grid[line][col] == '.')
-				line++;
-			grid[line - 1][col] = 'X';
-			if (test_win(grid, col) == 1)
+			coord[0] = 0;
+			while (grid[coord[0]] && grid[coord[0]][coord[1]] == '.')
+				coord[0]++;
+			grid[coord[0] - 1][coord[1]] = 'X';
+			if (test_win(grid, coord[1]) == 1)
 				ret = 1;
 			else
 				ret = 8;
-			grid[line - 1][col] = '.';
+			grid[coord[0] - 1][coord[1]] = '.';
 		}
-		col++;
+		coord[1] = coord[1] + 1;
 		if (ret < tmp)
 			tmp = ret;
 	}
@@ -46,61 +45,56 @@ char		test_adv2(char **grid)
 
 char		test_ai(char **grid)
 {
-	int		line;
-	int		ret;
-	int		col;
-	int		tmp;
+	int		coord[4];
 
-	col = 0;
-	tmp = 10;
-	while (grid[0][col])
+	coord[1] = -1;
+	coord[3] = 10;
+	while (grid[0][++coord[1]])
 	{
-		if (test_up(grid, col))
+		if (test_up(grid, coord[1]))
 		{
-			line = 0;
-			while (grid[line] && grid[line][col] == '.')
-				line++;
-			grid[line - 1][col] = 'O';
-			if (test_win(grid, col) == 1)
+			coord[0] = 0;
+			while (grid[coord[0]] && grid[coord[0]][coord[1]] == '.')
+				coord[0]++;
+			grid[coord[0] - 1][coord[1]] = 'O';
+			if (test_win(grid, coord[1]) == 1)
 			{
-				grid[line - 1][col] = '.';
+				grid[coord[0] - 1][coord[1]] = '.';
 				return (9);
 			}
 			else
-				ret = test_adv2(grid);
-			grid[line - 1][col] = '.';
+				coord[2] = test_adv2(grid);
+			grid[coord[0] - 1][coord[1]] = '.';
 		}
-		col++;
-		if (ret < tmp)
-			tmp = ret;
+		if (coord[2] < coord[3])
+			coord[3] = coord[2];
 	}
-	return (tmp);
+	return (coord[3]);
 }
 
 char		test_adv(char **grid)
 {
-	int		line;
+	int		coord[2];
 	int		ret;
-	int		col;
 	int		tmp;
 
-	col = 0;
+	coord[1] = 0;
 	tmp = 10;
-	while (grid[0][col])
+	while (grid[0][coord[1]])
 	{
-		if (test_up(grid, col))
+		if (test_up(grid, coord[1]))
 		{
-			line = 0;
-			while (grid[line] && grid[line][col] == '.')
-				line++;
-			grid[line - 1][col] = 'X';
-			if (test_win(grid, col) == 1)
+			coord[0] = 0;
+			while (grid[coord[0]] && grid[coord[0]][coord[1]] == '.')
+				coord[0]++;
+			grid[coord[0] - 1][coord[1]] = 'X';
+			if (test_win(grid, coord[1]) == 1)
 				ret = 0;
 			else
 				ret = test_ai(grid);
-			grid[line - 1][col] = '.';
+			grid[coord[0] - 1][coord[1]] = '.';
 		}
-		col++;
+		coord[1]++;
 		if (ret < tmp)
 			tmp = ret;
 	}
@@ -122,7 +116,6 @@ char		test_token(char **grid, int col, char token)
 		ret = 10;
 	else
 		ret = test_adv(grid);
-	display(grid);
 	grid[line - 1][col] = '.';
 	return (ret);
 }
@@ -141,9 +134,6 @@ int			ai(char **grid, int cols)
 		if (test_up(grid, i) == 1)
 		{
 			tmp = test_token(grid, i, 'O');
-			ft_putchar('\n');
-			ft_putnbr(tmp);
-			ft_putchar('\n');
 			if (tmp > ret)
 			{
 				ret = tmp;
@@ -152,8 +142,5 @@ int			ai(char **grid, int cols)
 		}
 		i++;
 	}
-	ft_putchar('\n');
-	ft_putnbr(ret);
-	ft_putchar('\n');
 	return (tok);
 }

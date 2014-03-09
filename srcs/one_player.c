@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 15:38:59 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 13:34:52 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 14:34:03 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ void			one_player(char **grid, int line, int col)
 	int			i;
 
 	i = who_begin();
-	display(grid);
 	while (++i < line * col)
 	{
+		if (i == 0)
+			display(grid);
 		if (i % 2 == 1)
 			token = ai(grid, col);
 		else
