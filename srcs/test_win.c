@@ -6,13 +6,13 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 11:19:16 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/08 15:36:10 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 13:42:01 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	test_left_right(char **grid, int l, int c, char tok)
+char		test_left_right(char **grid, int l, int c, char tok)
 {
 	int		i;
 	int		count;
@@ -38,7 +38,7 @@ char	test_left_right(char **grid, int l, int c, char tok)
 	return (0);
 }
 
-char	test_up_down(char **grid, int l, int c, char tok)
+char		test_up_down(char **grid, int l, int c, char tok)
 {
 	int		i;
 	int		count;
@@ -61,7 +61,7 @@ char	test_up_down(char **grid, int l, int c, char tok)
 	return (0);
 }
 
-char	test_diag_up_left(char **grid, int l, int c, char tok)
+char		test_diag_up_left(char **grid, int l, int c, char tok)
 {
 	int		i;
 	int		j;

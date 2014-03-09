@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:13:09 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 09:49:57 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 13:41:21 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int			main(int ac, char **av)
 		if (!(grid = create_grid(av[1], av[2])))
 			error();
 		else
-		{
 			one_player(grid, ft_atoi(av[1]), ft_atoi(av[2]));
-//			two_players(grid, ft_atoi(av[1]), ft_atoi(av[2]));
-		}
 	}
 	else
 		error();

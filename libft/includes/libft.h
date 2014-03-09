@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 17:37:06 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/02/18 17:38:41 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 13:40:39 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define LIBFT_H
 # define BUFF_SIZE 64
 
-#  include <string.h>
-#  include <stdlib.h>
-#  include <unistd.h>
-#  include <fcntl.h>
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
 
 typedef struct	s_coord
 {
