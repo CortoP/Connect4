@@ -6,7 +6,7 @@
 #    By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/14 14:36:46 by vlehuger          #+#    #+#              #
-#    Updated: 2014/03/09 10:18:24 by vlehuger         ###   ########.fr        #
+#    Updated: 2014/03/09 15:17:03 by vlehuger         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -28,6 +28,7 @@ SRCS =		\
 			srcs/tabdup.c\
 			srcs/freetab.c\
 			srcs/ai.c\
+			srcs/ai2.c\
 			srcs/test_up.c\
 
 OBJS =		$(SRCS:.c=.o)

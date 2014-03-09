@@ -6,7 +6,7 @@
 /*   By: vlehuger <vlehuger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 09:17:46 by vlehuger          #+#    #+#             */
-/*   Updated: 2014/03/09 13:51:56 by vlehuger         ###   ########.fr       */
+/*   Updated: 2014/03/09 15:23:28 by vlehuger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char			**create_grid(char *lines, char *columns)
 		return (NULL);
 	if ((c = test_num(columns)) == -1)
 		return (NULL);
-	if (c < 4 || c > 300)
+	if (c < 4 || c > 50)
 		return (NULL);
 	if (l < 4 || l > 50)
 		return (NULL);
